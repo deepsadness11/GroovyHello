@@ -155,3 +155,16 @@ testClosure(4,"test",{
 
 //这个特性非常重要！！！
 
+//如何确定Closure的参数呢？？
+/*
+上文中的each 如果下面这样使用，则会报错
+iamList.each{
+String name,int x->return x}
+ */
+
+//其实是用很强的上下文关联的！！！
+//PS:TMD就是看API文档来理解语义吗？
+
+//Map中的findAll而言，有两个参数。 findAll会传入 Key和Value分辨传入。并且如果返回的值是
+//true，则表示是自己想要的。
+
