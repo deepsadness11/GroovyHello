@@ -130,3 +130,28 @@ assert greeting('Cry')=='Hello,Cry'
 //这是默认参数也没有的节奏了吗？！！
 def noParamClousure={->true}
 //这个时候吗，就不能给其传参数了！！！
+
+//Closure使用过程中的注意点
+//1.省略()
+//闭包在Groovy中大量的使用，比如很多类都定义了一些函数，这些函数最有的参数都是一个闭包
+
+//这个函数表示针对与每一个元素都调用closure进行处理。有点像回调
+//public static <T>List<T>each(List<T> self,Closure closure)
+
+def iamList = [1,2,3,4,5]
+iamList.each {  //使用闭包代替了圆括号
+    println it
+}
+
+//上面代码有两个知识点：
+//1.each函数调用的括号不见了。原来，当函数的最后一个参数是闭包时，可以省略括号
+def testClosure(int a1,String b1,Closure closure){
+    closure()//调用闭包
+}
+//调用时，可以免括号
+testClosure(4,"test",{
+    println "I am in closure"
+})
+
+//这个特性非常重要！！！
+
